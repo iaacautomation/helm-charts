@@ -1,0 +1,86 @@
+name: ci
+
+on:
+  pull_request:
+
+env:
+  helm-version: "v3.12.2"
+  kubeval-version: "v0.16.1"
+
+jobs:
+  lint-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Fetch history
+        run: git fetch --prune --unshallow
+      - name: Run chart-testing (lint)
+        uses: helm/chart-testing-action@main
+        with:
+          command: lint
+          config: .github/ct.yaml
+
+  lint-docs:
+    runs-on: ubuntu-latest
+    needs: lint-chart
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Run helm-docs
+        run: .github/helm-docs.sh
+
+  kubeval-chart:
+    runs-on: ubuntu-20.04
+    needs:
+      - lint-chart
+      - lint-docs
+    strategy:
+      matrix:
+        k8s:
+          - v1.21.10
+          - v1.22.7
+          - v1.23.5
+          - v1.26.5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Helm
+        uses: azure/setup-helm@v3.1
+        with:
+          version: "${{ env.helm-version }}"
+      - name: Run kubeval
+        env:
+          KUBERNETES_VERSION: ${{ matrix.k8s }}
+          KUBEVAL_VERSION: "${{ env.kubeval-version }}"
+        run: .github/kubeval.sh
+
+  install-chart:
+    name: install-chart
+    runs-on: ubuntu-latest
+    needs:
+      - lint-chart
+      - kubeval-chart
+    strategy:
+      matrix:
+        k8s:
+          - v1.21.10
+          - v1.22.7
+          - v1.23.5
+          - v1.26.5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+      - name: Create kind ${{ matrix.k8s }} cluster
+        uses: helm/kind-action@master
+        with:
+          node_image: kindest/node:${{ matrix.k8s }}
+      
+      - name: Run chart-testing (install)
+        uses: helm/chart-testing-action@master
+        with:
+          command: install
+          config: .github/ct.yaml
