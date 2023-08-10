@@ -18,7 +18,7 @@ jobs:
           - v1.23.17
           - v1.24.15
           - v1.25.11
-          - v1.26.5
+          - v1.26.6
           - v1.27.3
     steps:
       - name: Checkout
@@ -36,7 +36,7 @@ jobs:
         run: .github/kubeval.sh
 
   test-chart:
-    name: install-chart
+    name: test-chart
     runs-on: ubuntu-latest
     needs:
       - kubeval-chart
@@ -48,7 +48,7 @@ jobs:
           - v1.23.17
           - v1.24.15
           - v1.25.11
-          - v1.26.5
+          - v1.26.6
           - v1.27.3
     steps:
       - name: Checkout
