@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Fetch history
         run: git fetch --prune --unshallow
       - name: Run chart-testing (lint)
-        uses: helm/chart-testing-action@main
+        uses: helm/chart-testing-action@mv2.4.0
         with:
           command: lint
           config: .github/ct.yaml
@@ -62,15 +62,15 @@ jobs:
           - v1.26.5
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       
       - name: Create kind ${{ matrix.k8s }} cluster
-        uses: helm/kind-action@master
+        uses: helm/kind-action@v1.8.0
         with:
           node_image: kindest/node:${{ matrix.k8s }}
       
       - name: Run chart-testing (install)
-        uses: helm/chart-testing-action@master
+        uses: helm/chart-testing-action@v2.4.0
         with:
           command: install
           config: .github/ct.yaml
