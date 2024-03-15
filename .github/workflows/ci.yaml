@@ -9,6 +9,7 @@ env:
 
 jobs:
   kubeval-chart:
+    name: Evaluate chart on "${{ matrix.k8s }}"
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -37,7 +38,7 @@ jobs:
         run: .github/kubeval.sh
 
   test-chart:
-    name: test-chart
+    name: Test Helm Chart "${{ matrix.k8s}}"
     runs-on: ubuntu-latest
     needs:
       - kubeval-chart
@@ -59,8 +60,6 @@ jobs:
 
       - name: Set up Helm
         uses: azure/setup-helm@v4
-        with:
-          version: v3.12.1
 
       - uses: actions/setup-python@v5
         with:
