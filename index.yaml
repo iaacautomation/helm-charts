@@ -3,6 +3,25 @@ entries:
   graphite:
   - apiVersion: v2
     appVersion: 1.1.10-5
+    created: "2024-03-15T09:15:37.397267508Z"
+    description: Graphite metrics server
+    digest: c0c54108f79ede1d7b47e404f610e5d5832e5f2ffcc64b4702b2cb6731fe918b
+    home: https://graphiteapp.org/
+    icon: https://graphiteapp.org/img/graphite-logo_color.png
+    keywords:
+    - metrics
+    maintainers:
+    - email: manpreet@nehraconsultancy.net
+      name: manpreet-singh-nehra
+    name: graphite
+    sources:
+    - https://github.com/graphite-project
+    - https://github.com/graphite-project/docker-graphite-statsd
+    urls:
+    - https://github.com/iaacautomation/helm-charts/releases/download/graphite-2.0.1/graphite-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: 1.1.10-5
     created: "2024-03-15T08:41:43.615778881Z"
     description: Graphite metrics server
     digest: ad62a83ed21db8db8f35a0d99acfa31c2864dd39d7ecb26c6954c1320e5dc90a
@@ -58,4 +77,4 @@ entries:
     urls:
     - https://github.com/iaacautomation/helm-charts/releases/download/graphite-0.0.4/graphite-0.0.4.tgz
     version: 0.0.4
-generated: "2024-03-15T08:41:43.615794911Z"
+generated: "2024-03-15T09:15:37.397308115Z"
