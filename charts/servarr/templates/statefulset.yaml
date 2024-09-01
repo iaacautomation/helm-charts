@@ -8,6 +8,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  serviceName: {{ include "servarr.fullname" . }}
   selector:
     matchLabels:
       {{- include "servarr.selectorLabels" . | nindent 6 }}
@@ -66,4 +67,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceName: {{ include "servarr.fullname" . }}
