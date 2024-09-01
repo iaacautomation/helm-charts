@@ -77,4 +77,15 @@ entries:
     urls:
     - https://github.com/iaacautomation/helm-charts/releases/download/graphite-0.0.4/graphite-0.0.4.tgz
     version: 0.0.4
-generated: "2024-03-15T09:15:37.397308115Z"
+  servarr:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-09-01T14:09:26.585203354Z"
+    description: A Helm chart for Kubernetes
+    digest: b1d5ee5b06b18f4a112f596a0affae45d8bea204dab69530461848a7cd693f09
+    name: servarr
+    type: application
+    urls:
+    - https://github.com/iaacautomation/helm-charts/releases/download/servarr-1.0.0/servarr-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-09-01T14:09:26.585220977Z"
