@@ -81,21 +81,14 @@ readinessProbe:
     path: /
     port: http
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-# Additional volumes on the output Deployment definition.
+# Additional volumes on the output Statefulset definition.
 volumes: []
 # - name: foo
 #   secret:
 #     secretName: mysecret
 #     optional: false
 
-# Additional volumeMounts on the output Deployment definition.
+# Additional volumeMounts on the output Statefulset definition.
 volumeMounts: []
 # - name: foo
 #   mountPath: "/etc/foo"
