@@ -10,7 +10,7 @@ spec:
   {{- end }}
   serviceName: {{ include "servarr.fullname" . }}
   selector:
-    matchLabels:d
+    matchLabels:
       {{- include "servarr.selectorLabels" . | nindent 6 }}
   template:
     metadata:
@@ -35,7 +35,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag  }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | default "always" }}
           ports:
             - name: http
