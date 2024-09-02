@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "servarr.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  replicas: 1
   serviceName: {{ include "servarr.fullname" . }}
   selector:
     matchLabels:
