@@ -79,6 +79,16 @@ entries:
     version: 0.0.4
   servarr:
   - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2024-09-02T12:14:41.486682535Z"
+    description: A Helm chart for Kubernetes
+    digest: 5d91fe175f39223f8c810d696166f2b11a73f9ae8e76d2abdd71422238d97d4d
+    name: servarr
+    type: application
+    urls:
+    - https://github.com/iaacautomation/helm-charts/releases/download/servarr-1.0.1/servarr-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     appVersion: 1.0.0
     created: "2024-09-01T14:09:26.585203354Z"
     description: A Helm chart for Kubernetes
@@ -88,4 +98,4 @@ entries:
     urls:
     - https://github.com/iaacautomation/helm-charts/releases/download/servarr-1.0.0/servarr-1.0.0.tgz
     version: 1.0.0
-generated: "2024-09-01T14:09:26.585220977Z"
+generated: "2024-09-02T12:14:41.486703504Z"
