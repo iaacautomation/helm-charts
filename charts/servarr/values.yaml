@@ -90,9 +90,8 @@ volumes: []
 
 # Additional volumeMounts on the output Statefulset definition.
 volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+# - name: config
+#   mountPath: /config
 
 nodeSelector: {}
 
