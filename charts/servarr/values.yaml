@@ -30,6 +30,9 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
+# Environment Variables
+env: []
+
 securityContext: {}
   # capabilities:
   #   drop:
