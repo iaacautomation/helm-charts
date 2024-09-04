@@ -6,6 +6,9 @@ metadata:
     {{- include "servarr.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
+  {{ if eq .Values.service.type "externalName" }}
+  externalName: {{ .Values.service.externalName }}
+  {{ end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort | default .Values.service.port }}
