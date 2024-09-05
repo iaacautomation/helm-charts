@@ -81,9 +81,9 @@ readinessProbe:
 
 # Volumes to mount
 volumes: 
-  config: /config
-  downloads: /downloads
-  data: /data
+  config: config
+  downloads: downloads
+  data: data
 
 nodeselector: {}
 

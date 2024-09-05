@@ -68,7 +68,7 @@ jobs:
         uses: helm/chart-testing-action@v2
       
       - name: Create dirs
-        run: mkdir /config /downloads /data
+        run: mkdir config downloads data
 
       - name: Run chart-testing (list-changed)
         id: list-changed
