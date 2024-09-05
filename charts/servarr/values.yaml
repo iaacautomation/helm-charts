@@ -30,16 +30,15 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-# Environment Variables
-env: []
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+# Environment Variables
+env:
+  - name: TZ
+    value: Europe/Riga
 
 service:
   type: ClusterIP
@@ -82,20 +81,15 @@ readinessProbe:
     path: /
     port: http
 
-# Additional volumes on the output Statefulset definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+# Volumes to mount
+volumes: {}
+# config:
+# downloads:
+# media
 
-# Additional volumeMounts on the output Statefulset definition.
-volumeMounts: []
-# - name: config
-#   mountPath: /config
+nodeselector: {}
 
-nodeSelector: {}
+tolerations: {}
 
-tolerations: []
 
 affinity: {}

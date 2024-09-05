@@ -45,18 +45,34 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            - name: config
+              mountPath: /config
+            - name: downloads
+              mountPath: /downloads
+            - name: data
+              mountPath: /data
           {{- with .Values.env }}
           env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.volumes }}
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - name: config
+          hostPath:
+            path: {{ .Values.volumes.config }}
+            type: Directory
+        {{- if .Values.volumes.downloads }}
+        - name: downloads
+          hostPath:
+            path: {{ .Values.volumes.downloads }}
+            type: Directory
+        {{- end }}
+        {{- if .Values.volumes.data }}
+        - name: data
+          hostPath:
+            path: {{ .Values.volumes.data }}
+            type: Directory
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
