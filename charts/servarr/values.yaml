@@ -81,10 +81,10 @@ readinessProbe:
     port: http
 
 # Volumes to mount
-volumes: {}
-# config:
-# downloads:
-# media
+volumes: 
+  config: /config
+  downloads: /downloads
+  data: /data
 
 nodeselector: {}
 
