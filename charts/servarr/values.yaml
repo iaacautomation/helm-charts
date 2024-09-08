@@ -3,7 +3,6 @@
 # Declare variables to be passed into your templates.
 
 image:
-  registry: ghcr.io/onedr0p
   name: sonarr
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
