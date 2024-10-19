@@ -39,6 +39,9 @@ service:
   type: ClusterIP
   port: 8080
 
+# IF existinig password is not provided, avoid usingg
+password: testpassword
+
 ingress:
   enabled: false
   #annotations:
