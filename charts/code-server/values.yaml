@@ -39,9 +39,6 @@ service:
   type: ClusterIP
   port: 8080
 
-# IF existinig password is not provided, avoid usingg
-password: testpassword
-
 ingress:
   enabled: false
   #annotations:
@@ -115,7 +112,7 @@ affinity: {}
 
 ## Persist data to a persistent volume
 persistence:
-  enabled: false
+  enabled: true
   ## code-server data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -125,7 +122,7 @@ persistence:
   ##
   # storageClass: "-"
   accessMode: ReadWriteOnce
-  size: 10Gi
+  size: 50Gi
   annotations: {}
   # existingClaim: ""
   # hostPath: /data
