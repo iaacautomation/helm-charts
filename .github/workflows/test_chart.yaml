@@ -2,6 +2,8 @@ name: Test Chart
 
 on:
   pull_request:
+    paths:
+      - 'charts/**'
 
 env:
   helm-version: "v3.12.2"
