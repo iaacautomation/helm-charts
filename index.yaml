@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   code-server:
   - apiVersion: v2
+    appVersion: 4.96.4
+    created: "2025-01-21T16:17:27.670814922Z"
+    description: A Helm chart for coder/code-server
+    digest: e631ab55e8680a173ed5759636346bb0b5571f03e74826781f87098fa1b3e742
+    name: code-server
+    type: application
+    urls:
+    - https://github.com/iaacautomation/helm-charts/releases/download/code-server-3.25.2/code-server-3.25.2.tgz
+    version: 3.25.2
+  - apiVersion: v2
     appVersion: 4.93.1
     created: "2024-10-20T21:59:32.546695848Z"
     description: A Helm chart for coder/code-server
@@ -179,4 +189,4 @@ entries:
     urls:
     - https://github.com/iaacautomation/helm-charts/releases/download/servarr-1.0.0/servarr-1.0.0.tgz
     version: 1.0.0
-generated: "2024-10-20T21:59:32.54672874Z"
+generated: "2025-01-21T16:17:27.670873852Z"
